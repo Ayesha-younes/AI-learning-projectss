@@ -1,8 +1,11 @@
 from sklearn.linear_model import
 LogisticRegression
 
-x = [[0,0],[1,1]]
-y = [0,1]
+#Expanded dataset
+x = [[0,0],[1,1],[1,0],[0,1]]
+y = [0,1,1,0]
 
-model = LogisticRegression().fit(x, y)
-print("Model trained. Coefficients:", model.coef_)
+#Tuned Logistic Regression
+model = LogisticRegression(max_iter=200,solver="liblinear").fit(x, y)
+print("Model trained. Coefficients:",model.coef_)
+print("Model intercept:", model.intercept_)
